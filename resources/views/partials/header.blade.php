@@ -12,14 +12,6 @@
   </div>
 
   <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
-    <li class="ms-nav-item ms-search-form pb-0 py-0">
-      <form class="ms-form" method="post">
-        <div class="ms-form-group my-0 mb-0 has-icon fs-14">
-          <input type="search" class="ms-form-input" name="search" placeholder="Search here..." value="">
-          <i class="flaticon-search text-disabled"></i>
-        </div>
-      </form>
-    </li>
     <li class="ms-nav-item dropdown">
       <a href="#" class="text-disabled ms-has-notification" id="mailDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flaticon-mail"></i></a>
       <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="mailDropdown">
@@ -102,12 +94,6 @@
       </ul>
     </li>
 
-    <li class="ms-nav-item m-0 display-none-sm">
-      <label class="ms-switch m-0">
-        <input type="checkbox" id="remove-quickbar" checked="">
-        <span class="ms-switch-slider round"></span>
-      </label>
-    </li>
     <li class="ms-nav-item ms-nav-user dropdown">
       <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="ms-user-img ms-img-round float-right" src="https://via.placeholder.com/270x270" alt="people"> </a>
       <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
