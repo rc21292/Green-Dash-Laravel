@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-12">
     <nav aria-label="breadcrumb">
-      <ol class="breadcrumb pl-0">
+      <ol class="breadcrumb breadcrumb-dark breadcrumb-arrow-sep">
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}"><i class="material-icons">home</i> Home</a></li>
         <li class="breadcrumb-item"><a href="#">User Management</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{ trans('cruds.user.title_singular') }} {{ trans('global.list') }}</li>
@@ -13,11 +13,17 @@
   <div class="col-xl-12 col-md-12">
     <div class="ms-panel ms-panel-fh">
       <div class="ms-panel-header">
-        <h6>{{ trans('cruds.user.title_singular') }} {{ trans('global.list') }}</h6>
+        <div class=" d-flex justify-content-between">
+          <div class="ms-header-text">
+            <h6>{{ trans('cruds.user.title_singular') }} {{ trans('global.list') }}</h6>
+            <p>All Users of this Application are listed here</p>
+          </div>
+          <a href="{{ route('admin.users.create') }}" class="btn btn-outline-dark ms-graph-metrics" name="button">{{ trans('global.create') }} {{ trans('cruds.user.title_singular') }}</a>
+        </div>
       </div>
       <div class="ms-panel-body">
         <div class="table-responsive">
-          <table class="table thead-primary">
+          <table class="table thead-info">
             <thead>
               <tr>
                 <th scope="col">{{ trans('cruds.user.fields.id') }}</th>
@@ -41,15 +47,15 @@
                 </td>
                 <td>
                   @foreach($user->roles()->pluck('name') as $role)
-                  <span class="badge badge-info">{{ $role }}</span>
+                  <span class="badge badge-gradient-secondary">{{ $role }}</span>
                   @endforeach
                 </td>
                 <td>
                   <a href="{{ route('admin.users.show', $user->id) }}">
-                    <i class="far fa-eye-alt ms-text-warning"></i>
+                    <i class="fa fa-eye ms-text-secondary"></i>
                   </a>
                   <a href="{{ route('admin.users.edit', $user->id) }}">
-                    <i class="fas fa-pencil-alt ms-text-primary"></i>
+                    <i class="fas fa-pencil-alt ms-text-dark"></i>
                   </a>
                   <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;" id="delete-form">
                     <input type="hidden" name="_method" value="DELETE">
