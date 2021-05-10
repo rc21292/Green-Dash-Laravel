@@ -51,9 +51,9 @@
                   @endforeach
                 </td>
                 <td>
-                  <a href="{{ route('admin.users.show', $user->id) }}">
+{{--                   <a href="{{ route('admin.users.show', $user->id) }}">
                     <i class="fa fa-eye ms-text-secondary"></i>
-                  </a>
+                  </a> --}}
                   <a href="{{ route('admin.users.edit', $user->id) }}">
                     <i class="fas fa-pencil-alt ms-text-dark"></i>
                   </a>

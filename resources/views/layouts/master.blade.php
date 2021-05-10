@@ -8,19 +8,16 @@
 <body class="ms-body ms-aside-left-open ms-primary-theme ">
   <!-- Preloader -->
   <div id="preloader-wrap">
-    <div class="spinner spinner-8">
-      <div class="ms-circle1 ms-child"></div>
-      <div class="ms-circle2 ms-child"></div>
-      <div class="ms-circle3 ms-child"></div>
-      <div class="ms-circle4 ms-child"></div>
-      <div class="ms-circle5 ms-child"></div>
-      <div class="ms-circle6 ms-child"></div>
-      <div class="ms-circle7 ms-child"></div>
-      <div class="ms-circle8 ms-child"></div>
-      <div class="ms-circle9 ms-child"></div>
-      <div class="ms-circle10 ms-child"></div>
-      <div class="ms-circle11 ms-child"></div>
-      <div class="ms-circle12 ms-child"></div>
+    <div class="spinner spinner-9">
+      <div class="ms-cube ms-cube1"></div>
+      <div class="ms-cube ms-cube2"></div>
+      <div class="ms-cube ms-cube3"></div>
+      <div class="ms-cube ms-cube4"></div>
+      <div class="ms-cube ms-cube5"></div>
+      <div class="ms-cube ms-cube6"></div>
+      <div class="ms-cube ms-cube7"></div>
+      <div class="ms-cube ms-cube8"></div>
+      <div class="ms-cube ms-cube9"></div>
     </div>
   </div>
   @include('partials.sidebar')

@@ -38,7 +38,7 @@ class UsersController extends Controller
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        $roles = Role::get()->pluck('name', 'name');
+        $roles = Role::get();
 
         return view('admin.users.create', compact('roles'));
     }
@@ -73,9 +73,12 @@ class UsersController extends Controller
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        $roles = Role::get()->pluck('name', 'name');
 
-        return view('admin.users.edit', compact('user', 'roles'));
+        $user_role = $user->roles()->first(['id','name']);
+
+        $roles = Role::get();
+        
+        return view('admin.users.edit', compact('user', 'user_role','roles'));
     }
 
     /**

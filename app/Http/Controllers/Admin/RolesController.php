@@ -38,7 +38,7 @@ class RolesController extends Controller
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        $permissions = Permission::get()->pluck('name', 'name');
+        $permissions = Permission::get(['id', 'name']);
 
         return view('admin.roles.create', compact('permissions'));
     }
@@ -73,9 +73,10 @@ class RolesController extends Controller
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        $permissions = Permission::get()->pluck('name', 'name');
+        $selected_permissions = $role->permissions()->get(['id'])->toArray();
+        $permissions = Permission::get(['id', 'name']);
 
-        return view('admin.roles.edit', compact('role', 'permissions'));
+        return view('admin.roles.edit', compact('role', 'permissions', 'selected_permissions'));
     }
 
     /**
