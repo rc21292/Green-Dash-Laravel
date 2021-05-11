@@ -10,18 +10,18 @@
         <li class="breadcrumb-item"><a href="{{route('admin.home')}}"><i class="material-icons">home</i> Home</a></li>
         <li class="breadcrumb-item"><a href="#">User Management</a></li>
         <li class="breadcrumb-item"><a href="{{ route('admin.roles.index') }}">{{ trans('cruds.role.title_singular') }} {{ trans('global.list') }}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{ trans('global.create') }} {{ trans('cruds.role.title_singular') }}</li>
+        <li class="breadcrumb-item active" aria-current="page">{{ trans('global.edit') }} {{ trans('cruds.role.title_singular') }}</li>
       </ol>
     </nav>
   </div>
   <div class="col-xl-8 col-md-12">
     <div class="ms-panel ms-panel-fh">
-      <div class="ms-panel-header">
+      <div class="ms-panel-header bg-info">
         <div class=" d-flex justify-content-between">
           <div class="ms-header-text">
-            <h6>{{ trans('global.create') }} {{ trans('cruds.role.title_singular') }}</h6>
+            <h6>{{ trans('global.edit') }} {{ trans('cruds.role.title_singular') }}</h6>
           </div>
-          <button type="submit" class="btn btn-outline-dark ms-graph-metrics" name="button" form="role-form">{{ trans('global.save') }} {{ trans('cruds.role.title_singular') }}</button>
+          <button type="submit" class="btn btn-outline-dark ms-graph-metrics" name="button" form="role-form">{{ trans('global.update') }} {{ trans('cruds.role.title_singular') }}</button>
         </div>
       </div>
       <div class="ms-panel-body">
@@ -69,6 +69,7 @@
   $(document).ready(function() {
     $('.select2').select2({
       tags: true,
+      width:640.65,
       tokenSeparators: [',', ' ']
     });
   });

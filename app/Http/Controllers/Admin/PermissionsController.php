@@ -53,7 +53,7 @@ class PermissionsController extends Controller
         }
         Permission::create($request->all());
 
-        return redirect()->route('admin.permissions.index');
+        return redirect()->route('admin.permissions.index')->withSuccess('Permission Created succesfully');
     }
 
 
@@ -87,7 +87,7 @@ class PermissionsController extends Controller
 
         $permission->update($request->all());
 
-        return redirect()->route('admin.permissions.index');
+        return redirect()->route('admin.permissions.index')->withSuccess('Permission Updated succesfully');
     }
 
 
@@ -105,7 +105,7 @@ class PermissionsController extends Controller
 
         $permission->delete();
 
-        return redirect()->route('admin.permissions.index');
+        return redirect()->route('admin.permissions.index')->withSuccess('Permission Deleted succesfully');
     }
 
     public function show(Permission $permission)

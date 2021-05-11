@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('head')
+  <link href="{{asset('assets/css/sweetalert2.min.css')}}" rel="stylesheet">
+@endsection
 @section('content')
 <div class="row">
   <div class="col-md-12">
@@ -43,13 +46,13 @@
               </td>
               <td>
                 @foreach($role->permissions()->pluck('name') as $permission)
-                <span class="badge badge-info">{{ $permission }}</span>
+                <span class="badge badge-warning">{{ $permission }}</span>
                 @endforeach
               </td>
               <td>
-                <a href="{{ route('admin.roles.show', $role->id) }}">
+{{--                 <a href="{{ route('admin.roles.show', $role->id) }}">
                   <i class="fa fa-eye ms-text-secondary"></i>
-                </a>
+                </a> --}}
                 <a href="{{ route('admin.roles.edit', $role->id) }}">
                   <i class="fas fa-pencil-alt ms-text-dark"></i>
                 </a>
@@ -69,6 +72,21 @@
 </div>
 </div>
 @endsection
-@section('scripts')
+@push('scripts')
+<script src="{{asset('assets/js/sweetalert2.min.js')}}"> </script>
+@if( Session::has( 'success' ))
+<script type="text/javascript">
 
-@endsection
+$( document ).ready(function() {
+
+        Swal.fire({
+          position: 'top-end',
+          type: 'success',
+          title: '{{ Session::get( 'success' ) }}',
+          showConfirmButton: false,
+          timer: 2200
+        });
+  });
+</script>
+@endif
+@endpush

@@ -58,7 +58,7 @@ class RolesController extends Controller
         $permissions = $request->input('permission') ? $request->input('permission') : [];
         $role->givePermissionTo($permissions);
 
-        return redirect()->route('admin.roles.index');
+        return redirect()->route('admin.roles.index')->withSuccess('Role Created succesfully');
     }
 
 
@@ -73,7 +73,7 @@ class RolesController extends Controller
         if (! Gate::allows('users_manage')) {
             return abort(401);
         }
-        $selected_permissions = $role->permissions()->get(['id'])->toArray();
+        $selected_permissions = $role->permissions()->get()->pluck('id')->toArray();
         $permissions = Permission::get(['id', 'name']);
 
         return view('admin.roles.edit', compact('role', 'permissions', 'selected_permissions'));
@@ -96,7 +96,7 @@ class RolesController extends Controller
         $permissions = $request->input('permission') ? $request->input('permission') : [];
         $role->syncPermissions($permissions);
 
-        return redirect()->route('admin.roles.index');
+        return redirect()->route('admin.roles.index')->withSuccess('Role Updated succesfully');
     }
 
     public function show(Role $role)
@@ -125,7 +125,7 @@ class RolesController extends Controller
 
         $role->delete();
 
-        return redirect()->route('admin.roles.index');
+        return redirect()->route('admin.roles.index')->withSuccess('Role Deleted succesfully');
     }
 
     /**

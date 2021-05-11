@@ -16,7 +16,7 @@
   </div>
   <div class="col-xl-8 col-md-12">
     <div class="ms-panel ms-panel-fh">
-      <div class="ms-panel-header">
+      <div class="ms-panel-header bg-info">
         <div class=" d-flex justify-content-between">
           <div class="ms-header-text">
             <h6>{{ trans('global.create') }} {{ trans('cruds.role.title_singular') }}</h6>

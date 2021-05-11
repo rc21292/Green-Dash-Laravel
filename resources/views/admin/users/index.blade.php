@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('head')
+  <link href="{{asset('assets/css/sweetalert2.min.css')}}" rel="stylesheet">
+@endsection
 @section('content')
 <div class="row">
   <div class="col-md-12">
@@ -57,7 +60,7 @@
                   <a href="{{ route('admin.users.edit', $user->id) }}">
                     <i class="fas fa-pencil-alt ms-text-dark"></i>
                   </a>
-                  <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;" id="delete-form">
+                  <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <a href="javascript:{}" onclick="document.getElementById('delete-form').submit();"> <i class="fas fa-trash-alt ms-text-danger"></i></a>
@@ -73,6 +76,21 @@
   </div>
 </div>
 @endsection
-@section('scripts')
+@push('scripts')
+<script src="{{asset('assets/js/sweetalert2.min.js')}}"> </script>
+@if( Session::has( 'success' ))
+<script type="text/javascript">
 
-@endsection
+$( document ).ready(function() {
+
+        Swal.fire({
+          position: 'top-end',
+          type: 'success',
+          title: '{{ Session::get( 'success' ) }}',
+          showConfirmButton: false,
+          timer: 2200
+        });
+  });
+</script>
+@endif
+@endpush
