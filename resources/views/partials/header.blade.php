@@ -108,7 +108,7 @@
           <a class="media fs-14 p-2" href="{{ route('admin.lock') }}"> <span><i class="flaticon-security mr-2"></i> Lock</span> </a>
         </li>
         <li class="dropdown-menu-footer">
-          <a class="media fs-14 p-2" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span> </a>
+          <a class="media fs-14 p-2"  href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span> </a>
         </li>
       </ul>
     </li>
