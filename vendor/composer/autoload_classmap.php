@@ -6,8 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddLockoutTimeToUsersTable' => $baseDir . '/database/migrations/2021_05_12_103102_add_lockout_time_to_users_table.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\Admin\\MyProfileController' => $baseDir . '/app/Http/Controllers/Admin/MyProfileController.php',
     'App\\Http\\Controllers\\Admin\\PermissionsController' => $baseDir . '/app/Http/Controllers/Admin/PermissionsController.php',
     'App\\Http\\Controllers\\Admin\\RolesController' => $baseDir . '/app/Http/Controllers/Admin/RolesController.php',
     'App\\Http\\Controllers\\Admin\\UsersController' => $baseDir . '/app/Http/Controllers/Admin/UsersController.php',
@@ -35,6 +37,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Traits\\LockableTrait' => $baseDir . '/app/Traits/LockableTrait.php',
     'App\\User' => $baseDir . '/app/User.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',

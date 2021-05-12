@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use Auth;
 use App\User;
+use Hash;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -37,7 +39,34 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+       $this->middleware('guest')->except([
+        'logout',
+        'locked',
+        'unlock'
+    ]);
+    }
+
+     public function locked(Request $request)
+    {
+        return view('auth.locked');
+    }
+
+    public function unlock(Request $request)
+    {
+        $check = Hash::check($request->input('password'), $request->user()->password);
+
+        if(!$check){
+            return redirect()->route('login.locked')->with('error',
+                'Your password does not match your profile.');
+        }
+
+        $user = User::find($request->user()->id);
+        $user->lockout_time = 0;
+         $user->save();
+
+        session(['lockout_time' => 0]);
+
+        return redirect('/');
     }
 
     

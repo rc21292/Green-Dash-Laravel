@@ -4,6 +4,7 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use App\Http\Controllers\Traits\LockableTrait;
 use Hash;
 
 /**
@@ -19,6 +20,7 @@ class User extends Authenticatable
 {
     use Notifiable;
     use HasRoles;
+    use LockableTrait;
 
     protected $fillable = ['name', 'email', 'password', 'remember_token'];
     

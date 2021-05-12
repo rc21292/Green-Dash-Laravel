@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use Illuminate\Http\Request;
-
+use Auth;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -25,5 +25,14 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function lock()
+    {
+        $id = Auth::User()->id;
+        $user = User::find($id);
+        $user->lockout_time = 1;
+        $user->save();
+        return view('auth.locked');
     }
 }
