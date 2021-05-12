@@ -65,4 +65,15 @@ return [
             'deleted_at_helper'        => '',
         ],
     ],
+    'profile'           => [
+        'title'          => 'All Profiles',
+        'title_singular' => 'My Profile',
+        'fields'         => [
+            'name'                     => 'Name',
+            'email'                    => 'Email',
+            'created_at'               => 'Created On',
+            'profile_picture'          => 'Profile Picture',
+            'preview'                  => 'Preview'
+        ],
+    ],
 ];
