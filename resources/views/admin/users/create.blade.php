@@ -74,7 +74,7 @@
          @endif
        </div>
      </div>
-     <div class="col-md-4 pt-4">
+     <div class="col-md-4 pt-2">
       <label class="ms-switch">
         <input type="checkbox" checked="" name="status">
         <span class="ms-switch-slider ms-switch-primary square"></span>

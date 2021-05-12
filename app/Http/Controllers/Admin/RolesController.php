@@ -101,13 +101,7 @@ class RolesController extends Controller
 
     public function show(Role $role)
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
 
-        $role->load('permissions');
-
-        return view('admin.roles.show', compact('role'));
     }
 
 
@@ -126,18 +120,6 @@ class RolesController extends Controller
         $role->delete();
 
         return redirect()->route('admin.roles.index')->withSuccess('Role Deleted succesfully');
-    }
-
-    /**
-     * Delete all selected Role at once.
-     *
-     * @param Request $request
-     */
-    public function massDestroy(Request $request)
-    {
-        Role::whereIn('id', request('ids'))->delete();
-
-        return response()->noContent();
     }
 
 }

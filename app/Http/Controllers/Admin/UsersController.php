@@ -103,13 +103,7 @@ class UsersController extends Controller
 
     public function show(User $user)
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
 
-        $user->load('roles');
-
-        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -127,21 +121,6 @@ class UsersController extends Controller
         $user->delete();
 
         return redirect()->route('admin.users.index')->withSuccess('User Deleted succesfully');
-    }
-
-    /**
-     * Delete all selected User at once.
-     *
-     * @param Request $request
-     */
-    public function massDestroy(Request $request)
-    {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
-        User::whereIn('id', request('ids'))->delete();
-
-        return response()->noContent();
     }
 
 }

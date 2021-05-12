@@ -99,13 +99,7 @@ class PermissionsController extends Controller
      */
     public function destroy(Permission $permission)
     {
-        if (! Gate::allows('users_manage')) {
-            return abort(401);
-        }
 
-        $permission->delete();
-
-        return redirect()->route('admin.permissions.index')->withSuccess('Permission Deleted succesfully');
     }
 
     public function show(Permission $permission)
@@ -115,18 +109,6 @@ class PermissionsController extends Controller
         }
 
         return view('admin.permissions.show', compact('permission'));
-    }
-
-    /**
-     * Delete all selected Permission at once.
-     *
-     * @param Request $request
-     */
-    public function massDestroy(Request $request)
-    {
-        Permission::whereIn('id', request('ids'))->delete();
-
-        return response()->noContent();
     }
 
 }
